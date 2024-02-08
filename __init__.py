@@ -22,10 +22,14 @@ bl_info = {
     "category" : "Generic"
 }
 
+import pathlib
+import sys
+sys.path.append(str(pathlib.Path(__file__).parent.absolute()))
+
 import bpy
 
-from .addon_integration.import_perso3d_op import ImportPerso3DOperator
-from .addon_integration.addon_panel import AddonPanel
+from addon_integration.import_perso3d_op import ImportPerso3DOperator
+from addon_integration.addon_panel import AddonPanel
 
 classes = (ImportPerso3DOperator, AddonPanel)
 
