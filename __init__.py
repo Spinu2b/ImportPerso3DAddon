@@ -27,10 +27,43 @@ import sys
 sys.path.append(str(pathlib.Path(__file__).parent.absolute()))
 
 import bpy
+from bpy.props import (StringProperty, PointerProperty)
+                       
+from bpy.types import (PropertyGroup)
 
 from addon_integration.import_perso3d_op import ImportPerso3DOperator
 from addon_integration.addon_panel import AddonPanel
 
-classes = (ImportPerso3DOperator, AddonPanel)
+# ------------------------------------------------------------------------
+#    Scene Properties
+# ------------------------------------------------------------------------
 
-register, unregister = bpy.utils.register_classes_factory(classes)
+class MyProperties(PropertyGroup):
+    path: StringProperty(
+        name="",
+        description="Path to .perso3d file",
+        default="",
+        subtype='FILE_PATH')
+
+# ------------------------------------------------------------------------
+#    Registration
+# ------------------------------------------------------------------------
+    
+classes = (
+    MyProperties,
+    ImportPerso3DOperator,
+    AddonPanel
+)
+
+def register():
+    from bpy.utils import register_class
+    for cls in classes:
+        register_class(cls)
+
+    bpy.types.Scene.perso_importer = PointerProperty(type=MyProperties)
+
+def unregister():
+    from bpy.utils import unregister_class
+    for cls in reversed(classes):
+        unregister_class(cls)
+    del bpy.types.Scene.perso_importer
