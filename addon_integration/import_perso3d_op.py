@@ -7,5 +7,5 @@ class ImportPerso3DOperator(bpy.types.Operator):
     bl_description = "Import Perso 3D"
 
     def execute(self, context):
-        MainAddonLogic().run()
+        MainAddonLogic().run(context.scene.perso_importer.path)
         return {'FINISHED'}
