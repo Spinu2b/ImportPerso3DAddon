@@ -6,6 +6,7 @@ class Vector3Constructor:
         result.x = json_dict["x"]
         result.y = json_dict["y"]
         result.z = json_dict["z"]
+        return result
 
 class QuaternionConstructor:
     def construct_from_json(self, json_dict) -> Quaternion:
@@ -14,6 +15,7 @@ class QuaternionConstructor:
         result.y = json_dict["y"]    
         result.z = json_dict["z"]
         result.w = json_dict["w"]
+        return result
 
 
 class ObjectTransformConstructor:
