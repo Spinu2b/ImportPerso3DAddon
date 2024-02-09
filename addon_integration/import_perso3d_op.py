@@ -1,4 +1,5 @@
 import bpy
+from main import MainAddonLogic
 
 class ImportPerso3DOperator(bpy.types.Operator):
     bl_idname = "view3d.import_perso3d"

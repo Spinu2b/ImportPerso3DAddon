@@ -1,5 +1,6 @@
 from typing import Dict
 
+from model.constructing.perso_3d_frame_export_data.perso_3d_frame_export_data_constructor import Perso3DFrameExportDataConstructor
 from model.perso.perso_3d_frame_export_data import Perso3DFrameExportData
 
 
