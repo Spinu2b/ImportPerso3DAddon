@@ -7,7 +7,7 @@ class Perso3DAnimatedDataConstructor:
         result_builder = Perso3DAnimatedDataBuilder()
         for state_index in json_dict["states"]:
             result_builder.add_state(
-                state_index=json_dict["states"],
+                state_index=state_index,
                 state_frames_dict=json_dict["states"][state_index]
             )     
         return result_builder.build()

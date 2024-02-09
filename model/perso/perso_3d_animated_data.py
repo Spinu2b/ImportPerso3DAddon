@@ -1,4 +1,5 @@
 
 
 class Perso3DAnimatedData:
-    pass
+    def __init__(self):
+        self.states = dict()
