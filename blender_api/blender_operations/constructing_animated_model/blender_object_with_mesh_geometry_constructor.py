@@ -23,4 +23,4 @@ class BlenderObjectWithMeshGeometryConstructor:
         vertices, edges, faces = subobject_geometry_data.get_blender_pydata_form()
 
         mesh_obj.data.from_pydata(vertices, edges, faces)
-        
+        return mesh_obj
