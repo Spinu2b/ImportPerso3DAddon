@@ -32,7 +32,21 @@ class SubobjectsCompressedPerso3DAnimatedDataDuplicatedSubobjectsTransformer:
                 perso3d_model.subobjects[subobject_alternative_new_hash].key = subobject_alternative_new_hash
                 duplicated_objects_hashes_alternatives[duplicated_object_hash].append(subobject_alternative_new_hash)
 
-        a = 5
+        
+        
+        for state_index in perso3d_model.states:
+            for frame_number in perso3d_model.states[state_index]:
+                duplicated_objects_hashes_alternatives_to_use = copy.deepcopy(duplicated_objects_hashes_alternatives)
+                already_encountered_hashes = []
+                for subobject_key in perso3d_model.states[state_index][frame_number].data_blocks:
+
+                    current_geometry_data_reference = perso3d_model.states[state_index][frame_number].data_blocks[subobject_key].geometry_data_reference
+
+                    if current_geometry_data_reference in already_encountered_hashes:
+                        new_hash_to_use = duplicated_objects_hashes_alternatives_to_use[current_geometry_data_reference].pop()
+                        perso3d_model.states[state_index][frame_number].data_blocks[subobject_key].geometry_data_reference = new_hash_to_use
+
+                    already_encountered_hashes.append(perso3d_model.states[state_index][frame_number].data_blocks[subobject_key].geometry_data_reference)
 
            
  
