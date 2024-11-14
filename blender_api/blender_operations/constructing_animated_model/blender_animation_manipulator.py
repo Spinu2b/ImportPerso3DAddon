@@ -30,9 +30,9 @@ class BlenderAnimationManipulator:
             subobject.transform,
         )
 
-        blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="location", frame=int(frame_number))
-        blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="rotation_quaternion", frame=int(frame_number))
-        blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="scale", frame=int(frame_number))
+        # blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="location", frame=int(frame_number))
+        # blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="rotation_quaternion", frame=int(frame_number))
+        # blender_mesh_objects[subobject.geometry_data_reference].keyframe_insert(data_path="scale", frame=int(frame_number))
 
-        # blender_animation_transform_manipulation.lock_rotation_scale_position()
+        blender_animation_transform_manipulation.lock_rotation_scale_position()
         

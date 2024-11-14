@@ -4,17 +4,17 @@ class Vector3Constructor:
     def construct_from_json(self, json_dict) -> Vector3:
         result = Vector3(0,0,0)
         result.x = json_dict["x"]
-        result.y = json_dict["y"]
-        result.z = json_dict["z"]
+        result.y = json_dict["z"]
+        result.z = json_dict["y"]
         return result
 
 class QuaternionConstructor:
     def construct_from_json(self, json_dict) -> Quaternion:
         result = Quaternion(0,0,0,1)
         result.x = json_dict["x"]
-        result.y = json_dict["y"]    
-        result.z = json_dict["z"]
-        result.w = json_dict["w"]
+        result.y = json_dict["z"]    
+        result.z = json_dict["y"]
+        result.w = -json_dict["w"]
         return result
 
 
