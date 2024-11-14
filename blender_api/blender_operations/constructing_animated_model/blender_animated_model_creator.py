@@ -1,4 +1,5 @@
 from typing import Dict, Set
+from blender_api.blender_armature_constructor import BlenderArmatureConstructor
 from blender_api.blender_operations.constructing_animated_model.blender_animation_manipulator import BlenderAnimationManipulator
 from blender_api.blender_operations.constructing_animated_model.blender_object_with_mesh_geometry_constructor import BlenderObjectWithMeshGeometryConstructor
 from blender_api.blender_operations.general_api_operations.blender_editor_manipulation import BlenderEditorManipulation
@@ -19,6 +20,13 @@ class BlenderAnimatedModelCreator:
                 perso3d_model.subobjects[subobject_geometry_data_hash]
             )
             blender_mesh_objects[subobject_geometry_data_hash] = blender_mesh_obj
+
+        blender_edit_mode_armature_model = perso3d_model.get_blender_edit_mode_armature_model()
+
+        blender_armature_constructor = BlenderArmatureConstructor()
+        blender_armature_data_block, blender_armature_obj = blender_armature_constructor.build_armature(
+            blender_edit_mode_armature_model=blender_edit_mode_armature_model,
+            name=self.ARMATURE_NAME)   
 
         self._animate_model_with_subobjects_existence_in_animations(
             perso3d_model=perso3d_model,
