@@ -1,4 +1,5 @@
 import copy
+from typing import List
 from model.perso.object_transform import Quaternion, Vector3
 
 
@@ -21,4 +22,8 @@ class BlenderEditModeArmatureNodeModel:
         self.scale = copy.deepcopy(scale)  # type: Vector3
 
 class BlenderEditModeArmatureModel:
-    pass
+    def __init__(self):
+        self.bones = []  # type: List[BlenderEditModeArmatureNodeModel]
+
+    def add_bone(self, bone: BlenderEditModeArmatureNodeModel):
+        self.bones.append(bone)    

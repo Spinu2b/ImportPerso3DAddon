@@ -11,9 +11,9 @@ class BlenderArmatureConstructor:
     ) -> Tuple[Armature, Object]:
         blender_armature_generator = BlenderArmatureGenerator()
         armature, armature_obj = blender_armature_generator.create_armature(name=name)
-        for armature_bone_model in blender_edit_mode_armature_model.iterate_nodes():
+        for armature_bone_model in blender_edit_mode_armature_model.bones:
             blender_armature_generator.place_bone(
-                armature_bone_model=armature_bone_model.node,
+                armature_bone_model=armature_bone_model,
                 armature=armature,
                 armature_obj=armature_obj
             )

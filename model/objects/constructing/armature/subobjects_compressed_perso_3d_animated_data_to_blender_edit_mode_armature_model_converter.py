@@ -2,6 +2,7 @@
 
 from model.animations.model.blender_edit_mode_armature_model import BlenderEditModeArmatureModel, BlenderEditModeArmatureNodeModel
 from model.perso.object_transform import Quaternion, Vector3
+from utils.blender.edit_mode_bones.blender_edit_mode_bones_construction_helper import BlenderEditModeBonesConstructionHelper
 
 
 class SubobjectsCompressedPerso3DAnimatedDataToBlenderEditModeArmatureModelConverter:
@@ -11,7 +12,7 @@ class SubobjectsCompressedPerso3DAnimatedDataToBlenderEditModeArmatureModelConve
             result.add_bone(self._get_blender_edit_mode_armature_node(name=subobject_hash))
         return result
     
-    def _get_blender_edit_mode_armature_node(self, name: str):
+    def _get_blender_edit_mode_armature_node(self, name: str) -> BlenderEditModeArmatureNodeModel:
 
         head_position, tail_position = BlenderEditModeBonesConstructionHelper().calculate_head_and_tail_position()
 

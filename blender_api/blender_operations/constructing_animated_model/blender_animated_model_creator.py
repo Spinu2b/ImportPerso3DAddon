@@ -26,7 +26,7 @@ class BlenderAnimatedModelCreator:
         blender_armature_constructor = BlenderArmatureConstructor()
         blender_armature_data_block, blender_armature_obj = blender_armature_constructor.build_armature(
             blender_edit_mode_armature_model=blender_edit_mode_armature_model,
-            name=self.ARMATURE_NAME)   
+            name="ARMATURE")   
 
         self._animate_model_with_subobjects_existence_in_animations(
             perso3d_model=perso3d_model,
