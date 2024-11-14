@@ -15,7 +15,8 @@ class BlenderAnimationManipulator:
     def animate_subobject(
         self, state_index: int, frame_number: int,
         subobject: SubobjectCompressedFrameDataBlock,
-        blender_mesh_objects: Dict[str, Object]
+        blender_mesh_objects: Dict[str, Object],
+        action,
     ):
         blender_animation_transform_manipulation = \
             BlenderAnimationTransformManipulation()

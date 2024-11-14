@@ -52,7 +52,8 @@ class BlenderAnimatedModelCreator:
                         state_index=state_index,
                         frame_number=frame_number,
                         subobject=perso3d_model.states[state_index][frame_number].data_blocks[subobject_key],
-                        blender_mesh_objects=blender_mesh_objects
+                        blender_mesh_objects=blender_mesh_objects,
+                        action=action,
                     )
                     touched_subobjects_hashes.add(perso3d_model.states[state_index][frame_number].data_blocks[subobject_key].geometry_data_reference)
 
@@ -70,7 +71,8 @@ class BlenderAnimatedModelCreator:
                             ),
                             geometry_data_reference=not_touched_subobject_hash
                         ),
-                        blender_mesh_objects=blender_mesh_objects
+                        blender_mesh_objects=blender_mesh_objects,
+                        action=action,
                     )
 
                 

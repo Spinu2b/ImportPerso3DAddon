@@ -27,3 +27,5 @@ class BlenderAnimationTransformManipulation:
 
     def lock_rotation_scale_position(self):
         bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
+        # bpy.ops.action.keyframe_insert(type='ALL')
+        # bpy.ops.action.keyframe_insert(type='ALL')
