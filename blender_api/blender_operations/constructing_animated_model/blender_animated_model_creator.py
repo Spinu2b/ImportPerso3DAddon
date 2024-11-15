@@ -82,6 +82,12 @@ class BlenderAnimatedModelCreator:
                     )
                     touched_subobjects_hashes.add(perso3d_model.states[state_index][frame_number].data_blocks[subobject_key].geometry_data_reference)
 
+                    blender_objects_manipulation.deselect_all_pose_objects()
+                    bpy.ops.pose.select_all(action='SELECT')
+                    bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
+
+
+
                 not_touched_subobjects_hashes = set(perso3d_model.subobjects.keys()).difference(touched_subobjects_hashes)
                 for not_touched_subobject_hash in not_touched_subobjects_hashes:
                     blender_animation_manipulator.animate_subobject(
@@ -101,10 +107,8 @@ class BlenderAnimatedModelCreator:
                         subobject_hash=not_touched_subobject_hash,
                         action=action,
                     )
-                
-                blender_objects_manipulation.deselect_all_pose_objects()
-                bpy.ops.pose.select_all(action='SELECT')
-                bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
 
-                
-
+                    blender_objects_manipulation.deselect_all_pose_objects()
+                    bpy.ops.pose.select_all(action='SELECT')
+                    bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
+            
