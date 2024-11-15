@@ -15,7 +15,7 @@ class BlenderEditorManipulation:
     def enter_animation_clip(self, name: str) -> Action:
         action = bpy.data.actions.new(name=name)  # type: Action
         action.use_fake_user = True
-        bpy.context.object.animation_data.action = action
+        # bpy.context.object.animation_data.action = action
         return action
 
     def set_context_space_data_ui_mode_to_action(self):

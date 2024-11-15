@@ -8,4 +8,4 @@ class BlenderEditModeBonesConstructionHelper:
         self
     ) -> Tuple[Tuple[float, float, float], Tuple[float, float, float]]:
 
-        return ((0,0,0),(0,0,10))
+        return ((0,0,0),(0,0,0.10))

@@ -4,7 +4,10 @@ from mathutils import Matrix, Vector, Quaternion
 from model.perso.object_transform import ObjectTransform
 
 class BlenderAnimationTransformManipulation:
-    def transform_object(self, object: Object, transform: ObjectTransform):
+    def transform_object(
+            self, pose_bone: Object,
+            transform: ObjectTransform,
+            armature_obj: Object):
         
 
         loc = Matrix.Translation(Vector((
@@ -23,7 +26,11 @@ class BlenderAnimationTransformManipulation:
         scale[2][2] = transform.scale.z
         world_mat = loc @ rot @ scale
 
-        object.matrix_world = world_mat
+        pose_bone.matrix = armature_obj.convert_space(
+                pose_bone=pose_bone,
+                matrix=world_mat,
+                from_space='WORLD',
+                to_space='POSE')
 
     def lock_rotation_scale_position(self):
         bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
