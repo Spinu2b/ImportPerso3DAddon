@@ -71,6 +71,10 @@ class BlenderAnimatedModelCreator:
                 blender_editor_manipulation.enter_frame_number(frame_number=int(frame_number))
                 touched_subobjects_hashes = set()  # type: Set[str]
                 for subobject_key in perso3d_model.states[state_index][frame_number].data_blocks:
+                    blender_objects_manipulation.deselect_all_pose_objects()
+                    bpy.ops.pose.select_all(action='SELECT')
+                    bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
+
                     blender_animation_manipulator.animate_subobject(
                         blender_armature_obj=blender_armature_obj,
                         state_index=state_index,
@@ -90,6 +94,10 @@ class BlenderAnimatedModelCreator:
 
                 not_touched_subobjects_hashes = set(perso3d_model.subobjects.keys()).difference(touched_subobjects_hashes)
                 for not_touched_subobject_hash in not_touched_subobjects_hashes:
+                    blender_objects_manipulation.deselect_all_pose_objects()
+                    bpy.ops.pose.select_all(action='SELECT')
+                    bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
+
                     blender_animation_manipulator.animate_subobject(
                         blender_armature_obj=blender_armature_obj,
                         state_index=state_index,
