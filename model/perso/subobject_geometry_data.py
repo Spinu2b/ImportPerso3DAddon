@@ -1,13 +1,17 @@
 from typing import List, Tuple
 
 from model.perso.object_transform import Vector3
+from model.perso.texture import Texture
+from model.perso.uv_map import UVMap
 
 
 class SubobjectGeometryData:
-    def __init__(self, key: str, vertices: List[Vector3], triangles: List[int]):
+    def __init__(self, key: str, vertices: List[Vector3], triangles: List[int], uv_map: UVMap, texture: Texture):
         self.key = key  # type: str
         self.vertices = vertices  # type: List[Vector3]
         self.triangles = triangles  # type: List[int]
+        self.uv_map = uv_map
+        self.texture = texture
 
     def get_blender_pydata_form(self):
         def flatten(object):

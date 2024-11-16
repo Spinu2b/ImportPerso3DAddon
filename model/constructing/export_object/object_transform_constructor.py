@@ -1,4 +1,12 @@
-from model.perso.object_transform import ObjectTransform, Quaternion, Vector3
+from model.perso.object_transform import ObjectTransform, Quaternion, Vector2, Vector3
+
+
+class Vector2Constructor:
+    def construct_from_json(self, json_dict) -> Vector2:
+        result = Vector3(0,0,0)
+        result.x = json_dict["x"]
+        result.y = json_dict["y"]
+        return result
 
 class Vector3Constructor:
     def construct_from_json(self, json_dict) -> Vector3:
