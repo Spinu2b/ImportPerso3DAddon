@@ -67,9 +67,11 @@ class BlenderAnimatedModelCreator:
 
             action = blender_editor_manipulation.enter_animation_clip(name="Animation_" + state_index)
             blender_editor_manipulation.set_armature_active_action(blender_armature_obj, action)
+            print("state " + str(state_index) + "/" + str(len(perso3d_model.states)))
             for frame_number in perso3d_model.states[state_index]:
                 blender_editor_manipulation.enter_frame_number(frame_number=int(frame_number))
                 touched_subobjects_hashes = set()  # type: Set[str]
+                print("state " + str(state_index) + "/" + str(len(perso3d_model.states)) + ", frame " + frame_number + "/" + str(len(perso3d_model.states[state_index])))
                 for subobject_key in perso3d_model.states[state_index][frame_number].data_blocks:
                     blender_objects_manipulation.deselect_all_pose_objects()
                     bpy.ops.pose.select_all(action='SELECT')
