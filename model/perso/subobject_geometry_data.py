@@ -6,12 +6,13 @@ from model.perso.uv_map import UVMap
 
 
 class SubobjectGeometryData:
-    def __init__(self, key: str, vertices: List[Vector3], triangles: List[int], uv_map: UVMap, texture: Texture):
+    def __init__(self, key: str, vertices: List[Vector3], normals: List[Vector3], triangles: List[int], uv_map: UVMap, texture: Texture):
         self.key = key  # type: str
         self.vertices = vertices  # type: List[Vector3]
         self.triangles = triangles  # type: List[int]
         self.uv_map = uv_map
         self.texture = texture
+        self.normals = normals
 
     def get_blender_pydata_form(self):
         def flatten(object):
