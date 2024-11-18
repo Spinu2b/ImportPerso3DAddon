@@ -74,7 +74,7 @@ class BlenderAnimatedModelCreator:
                 print("state " + str(state_index) + "/" + str(len(perso3d_model.states)) + ", frame " + frame_number + "/" + str(len(perso3d_model.states[state_index])))
                 for subobject_key in perso3d_model.states[state_index][frame_number].data_blocks:
                     blender_objects_manipulation.deselect_all_pose_objects()
-                    bpy.ops.pose.select_all(action='SELECT')
+                    bpy.ops.pose.select_all(action='SELECT')     
                     bpy.ops.anim.keyframe_insert_menu(type='LocRotScale')
 
                     blender_animation_manipulator.animate_subobject(

@@ -115,6 +115,18 @@ class BlenderObjectWithMeshGeometryConstructor:
 
         # self._apply_normals(subobject_geometry_data, mesh_obj)
         self._apply_mesh_materials(subobject_geometry_data, mesh_obj)
+
+
+        bpy.context.view_layer.objects.active = mesh_obj
+        mesh_obj.select_set(True)
+        bpy.ops.object.editmode_toggle()
+        bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.mesh.remove_doubles()
+        bpy.ops.object.editmode_toggle()
+
+        for f in mesh_obj.data.polygons:
+            f.use_smooth = True
+
         return mesh_obj
     
     def _apply_mesh_materials(self, subobject_geometry_data: SubobjectGeometryData, mesh_obj: Object):
