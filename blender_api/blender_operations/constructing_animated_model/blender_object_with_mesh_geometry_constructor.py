@@ -122,6 +122,7 @@ class BlenderObjectWithMeshGeometryConstructor:
         bpy.ops.object.editmode_toggle()
         bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.mesh.remove_doubles()
+        bpy.ops.mesh.flip_normals()
         bpy.ops.object.editmode_toggle()
 
         for f in mesh_obj.data.polygons:
