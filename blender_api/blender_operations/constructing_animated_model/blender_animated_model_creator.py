@@ -109,7 +109,7 @@ class BlenderAnimatedModelCreator:
                             transform = ObjectTransform(
                                 position=Vector3(0,0,0),
                                 rotation=Quaternion(0,0,0,1),
-                                scale = Vector3(0,0,0)
+                                scale = Vector3(0.00001,0.00001,0.00001)
                             ),
                             geometry_data_reference=not_touched_subobject_hash
                         ),
